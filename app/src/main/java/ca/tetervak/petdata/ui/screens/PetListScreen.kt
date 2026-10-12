@@ -29,18 +29,18 @@ import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import ca.tetervak.petdata.R
 import ca.tetervak.petdata.model.Pet
 import ca.tetervak.petdata.ui.theme.PetDataTheme
 import coil.compose.AsyncImage
+import org.koin.compose.viewmodel.koinViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PetListScreen(
     modifier: Modifier = Modifier,
-    viewModel: PetListViewModel = viewModel(factory = PetListViewModel.Factory),
+    viewModel: PetListViewModel = koinViewModel(),
     onItemClick: (Int) -> Unit = {}
 ){
     val state: State<PetListUiState> = viewModel.uiState

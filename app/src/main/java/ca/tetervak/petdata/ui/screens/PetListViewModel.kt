@@ -5,12 +5,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
-import ca.tetervak.petdata.PetDataApplication
 import ca.tetervak.petdata.data.PetDataRepository
 import ca.tetervak.petdata.model.Pet
 import kotlinx.coroutines.delay
@@ -52,18 +47,5 @@ class PetListViewModel(
     fun reloadData(){
         _uiState.value = PetListUiState.Loading
         loadData()
-    }
-
-    /**
-     * Factory for [MarsViewModel] that takes [MarsPhotosRepository] as a dependency
-     */
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val application = (this[APPLICATION_KEY] as PetDataApplication)
-                val petDataRepository = application.container.petDataRepository
-                PetListViewModel(repository = petDataRepository)
-            }
-        }
     }
 }

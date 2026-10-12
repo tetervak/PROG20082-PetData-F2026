@@ -15,7 +15,7 @@ import retrofit2.Retrofit
 
 val appModule = module {
     single {
-        val baseUrl = "https://android-kotlin-fun-mars-server.appspot.com/"
+        val baseUrl = "https://files.tetervak.com/mobile/pet-data-app/data/"
         Retrofit.Builder()
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .baseUrl(baseUrl)

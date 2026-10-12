@@ -1,14 +1,16 @@
 package ca.tetervak.petdata
 
 import android.app.Application
-import ca.tetervak.petdata.data.AppContainer
-import ca.tetervak.petdata.data.DefaultAppContainer
+import ca.tetervak.petdata.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
-class PetDataApplication: Application() {
-    /** AppContainer instance used by the rest of classes to obtain dependencies */
-    lateinit var container: AppContainer
+class PetDataApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        container = DefaultAppContainer()
+        startKoin {
+            androidContext(this@PetDataApplication)
+            modules(appModule)
+        }
     }
 }

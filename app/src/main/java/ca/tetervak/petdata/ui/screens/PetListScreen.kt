@@ -35,6 +35,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ca.tetervak.petdata.R
 import ca.tetervak.petdata.model.Pet
+import ca.tetervak.petdata.ui.screens.common.ErrorScreenContent
+import ca.tetervak.petdata.ui.screens.common.LoadingScreenContent
+import ca.tetervak.petdata.ui.screens.common.PetDataTopAppBar
 import ca.tetervak.petdata.ui.theme.PetDataTheme
 import coil.compose.AsyncImage
 import org.koin.compose.viewmodel.koinViewModel
@@ -72,83 +75,6 @@ fun PetListScreen(
                 modifier = modifier.padding(innerPadding)
             )
         }
-    }
-}
-
-@Composable
-fun LoadingScreenContent(modifier: Modifier = Modifier){
-    Column(
-        verticalArrangement = Arrangement.spacedBy(
-            space = 32.dp,
-            alignment = Alignment.CenterVertically
-        ),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize()
-    ) {
-        CircularProgressIndicator(
-            color = MaterialTheme.colorScheme.secondary,
-            strokeWidth = 4.dp
-        )
-        Text(
-            text = stringResource(R.string.loading_data),
-            fontSize = 36.sp,
-            color = colorResource(id = R.color.green_500)
-        )
-        Text(
-            text = stringResource(R.string.fake_delay),
-            fontSize = 24.sp
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoadingScreenContentPreview(){
-    PetDataTheme {
-        LoadingScreenContent()
-    }
-}
-
-@Composable
-fun ErrorScreenContent(
-    onRetry: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(
-            space = 32.dp,
-            alignment = Alignment.CenterVertically
-        ),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize()
-    ) {
-        Text(
-            text = stringResource(R.string.loading_error),
-            fontSize = 36.sp,
-            color = colorResource(id = R.color.pink_500)
-        )
-        Text(
-            text = stringResource(R.string.cannot_load_data),
-            fontSize = 24.sp
-        )
-        Button(
-            onClick = onRetry
-        ) {
-            Text(
-                text = stringResource(R.string.retry_button_label),
-                fontSize = 24.sp
-            )
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ErrorScreenContentPreview(){
-    PetDataTheme {
-        ErrorScreenContent(
-            onRetry = {}
-        )
     }
 }
 

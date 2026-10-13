@@ -3,7 +3,8 @@ package ca.tetervak.petdata.di
 import ca.tetervak.petdata.data.PetDataRepository
 import ca.tetervak.petdata.data.NetworkPetDataRepository
 import ca.tetervak.petdata.network.PetDataApi
-import ca.tetervak.petdata.ui.screens.PetListViewModel
+import ca.tetervak.petdata.ui.screens.petdetails.PetDetailsViewModel
+import ca.tetervak.petdata.ui.screens.petlist.PetListViewModel
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -29,5 +30,5 @@ val appModule = module {
     singleOf(::NetworkPetDataRepository) bind PetDataRepository::class
 
     viewModelOf(::PetListViewModel)
+    viewModelOf(::PetDetailsViewModel)
 }
-

@@ -1,4 +1,4 @@
-package ca.tetervak.petdata.ui.screens
+package ca.tetervak.petdata.ui.screens.petlist
 
 import android.util.Log
 import androidx.compose.runtime.MutableState

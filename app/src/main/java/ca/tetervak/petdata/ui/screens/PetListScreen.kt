@@ -164,7 +164,7 @@ fun ListScreenContent(
         ), modifier = modifier
     ) {
         items(petList) { pet ->
-            PetListItem(pet, { onItemClick(pet.id) })
+            PetListItem(pet, onClick = { onItemClick(pet.id) })
         }
     }
 

@@ -14,7 +14,7 @@ interface PetDataRepository {
     suspend fun getPetById(id: Int): Pet?
 }
 
-class NetworkPetDataRepository constructor(
+class NetworkPetDataRepository(
     private val petDataApi: PetDataApi
 ): PetDataRepository {
 

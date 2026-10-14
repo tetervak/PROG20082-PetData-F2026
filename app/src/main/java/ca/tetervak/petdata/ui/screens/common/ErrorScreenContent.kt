@@ -19,7 +19,7 @@ import ca.tetervak.petdata.ui.theme.PetDataTheme
 @Composable
 fun ErrorScreenContent(
     onRetry: () -> Unit,
-    modifier: Modifier = Modifier.Companion
+    modifier: Modifier = Modifier
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(

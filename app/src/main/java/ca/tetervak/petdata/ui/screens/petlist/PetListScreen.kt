@@ -33,7 +33,6 @@ import ca.tetervak.petdata.ui.screens.common.ErrorScreenContent
 import ca.tetervak.petdata.ui.screens.common.LoadingScreenContent
 import ca.tetervak.petdata.ui.screens.common.PetDataTopAppBar
 import coil.compose.AsyncImage
-import org.koin.compose.viewmodel.koinViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -83,7 +82,7 @@ fun ListScreenContent(
         ), modifier = modifier
     ) {
         items(petList) { pet ->
-            PetListItem(pet, { onItemClick(pet.id) })
+            PetListItem(pet, onClick = { onItemClick(pet.id) })
         }
     }
 

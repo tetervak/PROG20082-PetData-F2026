@@ -18,7 +18,7 @@ import ca.tetervak.petdata.R
 import ca.tetervak.petdata.ui.theme.PetDataTheme
 
 @Composable
-fun LoadingScreenContent(modifier: Modifier = Modifier.Companion){
+fun LoadingScreenContent(modifier: Modifier = Modifier){
     Column(
         verticalArrangement = Arrangement.spacedBy(
             space = 32.dp,
